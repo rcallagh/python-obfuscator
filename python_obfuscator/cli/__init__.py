@@ -27,7 +27,7 @@ def convert_file(args):
 def cli():
     parser = argparse.ArgumentParser(description="Process CLI args")
     parser.add_argument(
-        "-i", "--input", help="File to obfuscate", required=True, type=str
+        "-i", "--input", help="File to obfuscate", required=True, type=str, nargs="+"
     )
     parser.add_argument(
         "-r",
