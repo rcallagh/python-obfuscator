@@ -13,15 +13,16 @@ def convert_file(args):
     if not args.one_liner:
         remove.append(one_liner)
 
-    with open(file_path, "r") as f:
-        data = f.read()
-        obfuscated_data = obfuscate.obfuscate(data, remove_techniques=remove)
+    for file in file_path:
+        with open(file_path, "r") as f:
+            data = f.read()
+            obfuscated_data = obfuscate.obfuscate(data, remove_techniques=remove)
 
-    if args.replace:
-        with open(file_path, "w+") as f:
-            f.write(obfuscated_data)
-    else:
-        print(obfuscated_data)
+        if args.replace:
+            with open(file_path, "w+") as f:
+                f.write(obfuscated_data)
+        else:
+            print(obfuscated_data)
 
 
 def cli():
