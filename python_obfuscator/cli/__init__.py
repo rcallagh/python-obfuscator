@@ -14,12 +14,12 @@ def convert_file(args):
         remove.append(one_liner)
 
     for file in file_path:
-        with open(file_path, "r") as f:
+        with open(file, "r") as f:
             data = f.read()
             obfuscated_data = obfuscate.obfuscate(data, remove_techniques=remove)
 
         if args.replace:
-            with open(file_path, "w+") as f:
+            with open(file, "w+") as f:
                 f.write(obfuscated_data)
         else:
             print(obfuscated_data)
